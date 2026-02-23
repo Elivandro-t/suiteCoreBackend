@@ -17,21 +17,16 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequestMapping
 public class AppControler {
     private final ConcurrentHashMap<String, String> tokenApp = new ConcurrentHashMap<>();
-    private final String versionApp = "1.0.3";
+    private final String versionApp = "1.0.4";
     @Value("${app.apk.path}")
     private String apkPath;
     @GetMapping("/download-app/{token}")
     public ResponseEntity<Resource> downloadsApp(@PathVariable String token) {
-        System.out.println("chegou");
         String fileName = tokenApp.get(token);
-        System.out.println("data "+fileName);
-
         if (fileName == null) {
             return ResponseEntity.status(403).build();
         }
-
         try {
-
             File file = new File(apkPath);
             if(!file.exists()){
                 file.mkdirs();
@@ -67,7 +62,7 @@ public class AppControler {
         // Dica: Tente não deixar a URL do Ngrok hardcoded, mas para teste funciona
         String urlApp = "http://192.168.88.220:8083/download-app/" + token;
 
-        var resposta = new AppDTO("App-monitoramento", versionApp, urlApp,"Melhoria no modulo recebimento");
+        var resposta = new AppDTO("App-monitoramento", versionApp, urlApp,"Correção de bug modulo recebimento!");
         return ResponseEntity.ok(resposta);
     }
     @PostConstruct

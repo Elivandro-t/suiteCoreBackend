@@ -205,5 +205,25 @@ public class RegistroVisitantePortaria {
     public String getPrioridadeAviso() {
         return prioridadeAviso;
     }
+
+    public RequestRecorrenciaDTO getRecorrencia() {
+        return recorrencia;
+    }
+
+    public void setPrioridadeAtrasoAtivo(Boolean prioridadeAtrasoAtivo) {
+        this.prioridadeAtrasoAtivo = prioridadeAtrasoAtivo;
+    }
+
+    public void setPrioridadeAviso(String prioridadeAviso) {
+        this.prioridadeAviso = prioridadeAviso;
+    }
+
+    public void setPrioridadeAtraso(String prioridadeAtraso) {
+        this.prioridadeAtraso = prioridadeAtraso;
+    }
+
+    public void setRecorrencia(RequestRecorrenciaDTO recorrencia) {
+        this.recorrencia = recorrencia;
+    }
 }
 

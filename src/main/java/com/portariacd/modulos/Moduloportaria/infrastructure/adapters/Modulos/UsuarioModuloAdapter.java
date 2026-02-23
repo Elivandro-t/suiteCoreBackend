@@ -6,12 +6,14 @@ import com.portariacd.modulos.Moduloportaria.domain.models.dto.usuarioVO.Sistema
 import com.portariacd.modulos.Moduloportaria.infrastructure.persistence.RespositorySistemaAcesso;
 import com.portariacd.modulos.Moduloportaria.infrastructure.persistence.UsuarioEntity;
 import com.portariacd.modulos.Moduloportaria.infrastructure.persistence.UsuarioRepository;
+import com.portariacd.modulos.Moduloportaria.infrastructure.persistence.funcao.SistemaAcesso;
 import com.portariacd.modulos.Moduloportaria.infrastructure.persistence.modulosPerfil.ModuleDTO;
 import com.portariacd.modulos.Moduloportaria.infrastructure.persistence.modulosPerfil.UsuarioModuloEntity;
 import com.portariacd.modulos.Moduloportaria.infrastructure.persistence.modulosPerfil.UsuarioModuloRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,7 +61,9 @@ public class UsuarioModuloAdapter implements ModuloGatewayRepository {
 
     @Override
     public List<SistemaAcessoUsuarioDTO> listaPermission() {
-       return   respositoryAcesso.findAll().stream().map(SistemaAcessoUsuarioDTO::new).toList();
+       return   respositoryAcesso.findAll()
+               .stream()
+               .sorted(Comparator.comparing(SistemaAcesso::getId)).map(SistemaAcessoUsuarioDTO::new).toList();
     }
 
 }
