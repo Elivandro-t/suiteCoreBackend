@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequestMapping
 public class AppControler {
     private final ConcurrentHashMap<String, String> tokenApp = new ConcurrentHashMap<>();
-    private final String versionApp = "1.0.4";
+    private final String versionApp = "1.0.5";
     @Value("${app.apk.path}")
     private String apkPath;
     @GetMapping("/download-app/{token}")
