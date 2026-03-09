@@ -60,7 +60,7 @@ public class AppControler {
         tokenApp.put(token, "portariav1.apk");
 
         // Dica: Tente não deixar a URL do Ngrok hardcoded, mas para teste funciona
-        String urlApp = "http://192.168.88.220:8083/download-app/" + token;
+        String urlApp = "http://10.220.112.111:8083/download-app/" + token;
 
         var resposta = new AppDTO("App-monitoramento", versionApp, urlApp,"Correção de bug modulo recebimento!");
         return ResponseEntity.ok(resposta);
