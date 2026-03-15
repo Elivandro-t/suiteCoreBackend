@@ -208,7 +208,7 @@ public class DataInitializer implements CommandLineRunner {
         Set<RegistroBlocoDTO> blocos = Set.of(
                 new RegistroBlocoDTO("Bloco 1"),
                 new RegistroBlocoDTO("Bloco 2"),
-                new RegistroBlocoDTO("Bloco 2"),
+                new RegistroBlocoDTO("Bloco 3"),
                 new RegistroBlocoDTO("Bloco 4"),
                 new RegistroBlocoDTO("Bloco 5"),
                 new RegistroBlocoDTO("Bloco 6"),
