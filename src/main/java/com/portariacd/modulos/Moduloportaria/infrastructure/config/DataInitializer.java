@@ -194,7 +194,7 @@ public class DataInitializer implements CommandLineRunner {
         }
     }
     private void criarUsuario(){
-        var usuario = new CadastroUsuarioDto("Grupomateus","admin@grupomateus.com.br","@Admin2025@#$","SUPORTE",116, 1l,1L);
+        var usuario = new CadastroUsuarioDto("Propietario","admin@suitecore.com.br","@Admin2025@#$","SUPORTE",116, 1l,1L);
        var usuarioEntity = usuarioRepository.findOneByEmail(usuario.email());
         if(usuarioEntity.isEmpty()) {
             usuarioService.registroUsuario(usuario);
@@ -206,14 +206,14 @@ public class DataInitializer implements CommandLineRunner {
                 .map(BlocoEntity::getNome)
                 .toList());
         Set<RegistroBlocoDTO> blocos = Set.of(
-                new RegistroBlocoDTO("Secos"),
-                new RegistroBlocoDTO("Hortifrúti"),
-                new RegistroBlocoDTO("Frios"),
-                new RegistroBlocoDTO("Fatiados"),
-                new RegistroBlocoDTO("Indústria"),
-                new RegistroBlocoDTO("Spazio"),
-                new RegistroBlocoDTO("Oficina Caminhões"),
-                new RegistroBlocoDTO("Material Logistico")
+                new RegistroBlocoDTO("Bloco 1"),
+                new RegistroBlocoDTO("Bloco 2"),
+                new RegistroBlocoDTO("Bloco 2"),
+                new RegistroBlocoDTO("Bloco 4"),
+                new RegistroBlocoDTO("Bloco 5"),
+                new RegistroBlocoDTO("Bloco 6"),
+                new RegistroBlocoDTO("Bloco 7"),
+                new RegistroBlocoDTO("Bloco 8")
         );
         for(RegistroBlocoDTO e:blocos){
              if(!existentes.contains(e.nome())){
@@ -258,11 +258,7 @@ public class DataInitializer implements CommandLineRunner {
                 .map(SistemaAcesso::getTitulo)
                 .toList());
         Set<SistemaAcessoDTO> re= Set.of(
-                new SistemaAcessoDTO("Portaria","Gerenciamento de permissões e módulos do usuário","/portaria",true, SistemaStatusEnun.PORTARIA_ACCESS.name()),
-                new SistemaAcessoDTO("Recebimento","","/recebimento",true,SistemaStatusEnun.RECEBIMENTO_ACCESS.name()),
-                new SistemaAcessoDTO("Inventário","Consulta e resultado de inventário","/inventario",true,SistemaStatusEnun.INVENTARIO_ACCESS.name()),
-        new SistemaAcessoDTO("Material Logistico","Controle de material Logistico","/logistico",true,SistemaStatusEnun.LOGISTICO_ACCESS.name())
-
+                new SistemaAcessoDTO("Portaria","Gerenciamento de permissões e módulos do usuário","/portaria",true, SistemaStatusEnun.PORTARIA_ACCESS.name())
         );
         for(SistemaAcessoDTO e:re){
             if(!existentes.contains(e.titulo())){

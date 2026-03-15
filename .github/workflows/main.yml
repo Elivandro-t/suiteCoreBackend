@@ -21,16 +21,16 @@ jobs:
 
       - name: Build e push da imagem
         run: |
-          docker build -t elivandrolopes/portaria:7.0 .
-          docker push elivandrolopes/portaria:7.0
+          docker build -t elivandrolopes/suitecore-back:1.0 .
+          docker push elivandrolopes/suitecore-back:1.0
 
-  deploy:
-    needs: build
-    runs-on: [self-hosted, Linux]
-    steps:
-      - name: Deploy local com Docker Compose
-        run: |
-          # Caminho absoluto para o diretório onde está o seu docker-compose.yml
-          cd /servidor/servidor
-          docker compose pull portaria-app
-          docker compose up -d portaria-app
+#  deploy:
+#    needs: build
+#    runs-on: [self-hosted, Linux]
+#    steps:
+#      - name: Deploy local com Docker Compose
+#        run: |
+#          # Caminho absoluto para o diretório onde está o seu docker-compose.yml
+#          cd /servidor/servidor
+#          docker compose pull portaria-app
+#          docker compose up -d portaria-app
