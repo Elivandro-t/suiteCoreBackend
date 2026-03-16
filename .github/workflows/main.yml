@@ -36,5 +36,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
               cd /home/ubuntu
-              docker compose pull portaria-app
-              docker compose up -d portaria-app
+              docker compose pull portaria-back
+              docker compose up -d portaria-back
